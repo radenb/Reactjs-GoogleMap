@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { debounce } from '../../utils/Debounce'
+import { debounce } from './Debounce'
 
 
 export class Map extends React.Component {
