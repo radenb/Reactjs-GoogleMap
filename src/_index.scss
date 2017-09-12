@@ -1,0 +1,144 @@
+
+
+
+
+
+
+ // - - - - - PROJECT SPECIFIC CSS - - - - - //
+.mapWrapper {
+    height:60vh;
+    min-height:60vh;
+    overflow: hidden;
+    transform:translate3d(0,60px,0);
+    transition: all 1.0s $ani_main;
+
+    &.open {
+        border: 1px solid $color_black;
+        transform:translate3d(0,0,0);
+    }
+    @include breakpoint($size_tablet) {
+        flex-wrap: wrap;
+        &.open {
+            height: calc(100vh - 70px);
+            border-right: 0px;
+            border-left: 0px;
+        }
+
+    }
+}
+
+.mapWrap {
+    height: 60vh;
+    width: 100%;
+    & > div.open {
+        border-left:solid 1px $color_black;
+    }
+    .loader {
+
+
+    }
+
+    @include breakpoint($size_tablet) {
+        // height: 60%;
+        height: calc(60vh - 70px);
+    }
+}
+.locationWrap {
+    //border-right: 1px solid $color_black;
+    height: 60vh;
+    width: 30%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+
+    @include breakpoint($size_tablet) {
+        width: 100%;
+        height: 40vh;
+        order: 2;
+        border: 0px;
+    }
+}
+
+.locationBlock {
+    position: relative;
+    cursor: pointer;
+    padding: {
+        top: 25px;
+        right: 25px;
+        bottom: 25px;
+        left: 25px;
+    }
+    border-bottom: 1px solid $color_black;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 30px;
+        right: 15px;
+        height: 15px;
+        width: 15px;
+        background: url('/dist/assets/img/arrow-down.png') center no-repeat;
+        transform: rotate(-90deg);
+    }
+    &:not(:first-child) {
+        // border-top: 1px solid black;
+    }
+    hr {width: 25%; margin: 1vw auto 1vw 0;}
+    p {
+        font-size: 100%;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+    }
+    & > p:first-child {padding-right: 25px;}
+    .distance {
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        font-size: 70%;
+    }
+    &.active {
+        background: rgba(#e6e7e8, 0.45);
+    }
+    &:hover {
+        background: rgba(#e6e7e8, 0.2);
+    }
+}
+
+
+// MAP STYLES =====
+
+.infoBlock {
+    padding: 25px;
+    font-weight: 600;
+    hr {
+        width: 65%;
+        margin: 1vw auto 1vw 0;
+    }
+    &.active {
+        background: rgba(0, 0, 0, 0.05);
+    }
+    .getDir {
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: $color_black;
+            transition: width 0.35s $ani_main;
+        }
+        &:hover:after {
+            width: 100%;
+        }
+    }
+}
+
+// .gmnoprint
+
+.gm-style-mtc, .gm-style-cc {
+    display: none;
+    pointer-events: none;
+}
